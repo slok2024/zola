@@ -1,41 +1,35 @@
-# zola (né Gutenberg) <img src="docs/static/logos/Zola-logo-main-coffee.svg" align="right" alt="zola logo" width="30%"/>
+Zola 是一个用 Rust 语言编写的、现代化且极其快速的静态网站生成器（Static Site Generator, SSG）。它的核心设计理念与 Hugo 类似，但语法和配置更为直观现代，是构建个人博客、技术文档、项目官网和知识库的理想工具。
 
-[![Build Status](https://dev.azure.com/getzola/zola/_apis/build/status/getzola.zola?branchName=master)](https://dev.azure.com/getzola/zola/_build/latest?definitionId=1&branchName=master)
-![GitHub all releases](https://img.shields.io/github/downloads/getzola/zola/total)
+以下是 Zola 的核心特点和主要优势：
 
-A fast static site generator in a single binary with everything built-in.
+1. 核心特点
+单文件二进制（Single Binary）：
+Zola 编译后是一个独立的、开箱即用的可执行文件（如 zola.exe），没有任何外部依赖（如 Node.js、Python 或复杂的运行时环境）。你可以直接把它扔到服务器上或本地运行。
 
-To find out more see the [Zola Documentation](https://www.getzola.org/documentation/getting-started/overview/), look
-in the [docs/content](docs/content) folder of this repository or visit the [Zola community forum](https://zola.discourse.group).
+极速构建：
+得益于 Rust 语言的高性能并发优势，Zola 拥有极快的构建速度，通常几千个页面的大型网站也能在几毫秒或几百毫秒内完成编译。
 
-This tool and its template engine [tera](https://keats.github.io/tera/) were born from an intense dislike of the (insane) Golang template engine and therefore of
-Hugo that I was using before for 6+ sites.
+内置一切（Everything Built-in）：
+开箱即用是 Zola 的最大特色之一。它内置了许多现代网站必需的功能，用户不需要额外去拼凑各种插件：
 
-## List of features
+Sass/SCSS 编译：内置 Sass 引擎，可直接将样式表编译并压缩为纯 CSS。
 
-- [Single binary](https://www.getzola.org/documentation/getting-started/cli-usage/)
-- [Syntax highlighting](https://www.getzola.org/documentation/content/syntax-highlighting/)
-- [Sass compilation](https://www.getzola.org/documentation/content/sass/)
-- Assets co-location
-- [Multilingual site support](https://www.getzola.org/documentation/content/multilingual/) (Basic currently)
-- [Image processing](https://www.getzola.org/documentation/content/image-processing/)
-- [Themes](https://www.getzola.org/documentation/themes/overview/)
-- [Internal links](https://www.getzola.org/documentation/content/linking/)
-- [External link checker](https://www.getzola.org/documentation/getting-started/cli-usage/#check)
-- [Table of contents automatic generation](https://www.getzola.org/documentation/content/table-of-contents/)
-- Automatic header anchors
-- [Aliases](https://www.getzola.org/documentation/content/page/#front-matter)
-- [Pagination](https://www.getzola.org/documentation/templates/pagination/)
-- [Custom taxonomies](https://www.getzola.org/documentation/templates/taxonomies/)
-- [Search with no servers or any third parties involved](https://www.getzola.org/documentation/content/search/)
-- [Live reload](https://www.getzola.org/documentation/getting-started/cli-usage/#serve)
-- Deploy on many platforms easily: [Netlify](https://www.getzola.org/documentation/deployment/netlify/), [Vercel](https://www.getzola.org/documentation/deployment/vercel/), [Cloudflare Pages](https://www.getzola.org/documentation/deployment/cloudflare-pages/), etc
+语法高亮：基于 Syntect（与 Sublime Text 相同的引擎），支持极其丰富、高质量的代码块高亮。
 
-## License
+多语言支持：原生支持多语言站点的构建。
 
-This project contains code under multiple licenses.
+全站搜索：内置基于 JavaScript 的全文搜索索引生成器（基于 ElasticLunr），无需后端即可实现前端搜索。
 
-Code introduced after version 0.22 is licensed under the EUPL-1.2.
-Code that existed prior to commit 3c9131db0d203640b6d5619ca1f75ce1e0d49d8f remains licensed under the MIT License, including in later versions of the project.
+自动链接检查：提供 zola check 命令，能够自动帮你检查和扫描全站死链、损坏的内部锚点和无效超链接。
 
-See LICENSE and LICENSE-MIT for details.
+2. 与 Hugo 和其他 SSG 的对比
+比 Hugo 更直观的模板语法：
+Hugo 使用的是 Go 的 text/template 语法，逻辑有时显得比较晦涩；而 Zola 使用的是 Tera 模板引擎（语法类似于 Jinja2 / Django），对前端开发者和新手更加友好、易读。
+
+纯粹的静态输出：
+它专注于纯静态 HTML/CSS/JS 的输出，不绑定任何前端框架，极其干净、安全且资源占用极低。
+
+3. 典型应用场景
+个人博客与作品集：结合 Markdown 和精美的主题，可以快速搭建一个属于自己的独立网站。
+
+产品或技术文档：配合清爽的目录结构，能够非常高效地输出类似 GitBook 的产品说明书。
